@@ -6,7 +6,7 @@
 
 .App-header {
   background: rgb(189, 130, 201);
-  background: linear-gradient(30deg, rgba(155, 97, 182, 0.947) 33%, rgb(196, 159, 206) 59%);
+  background: radial-gradient(rgb(196, 159, 206),rgba(155, 97, 182, 0.947));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,20 +19,11 @@
   color: rgb(166, 135, 189);
   
 }
-.chat{
-  position:fixed;
-  bottom:0;
-  right:3%;
-  padding:10px 20px 10px 20px;
-  
-  width:300px;
-  background-image: linear-gradient(to top,rgba(59, 57, 185, 0.829) 33%, rgba(71,80,237,1));
-  text-align:center;
-  color:white;
-  border-radius:5px
 
+.nav{
+  background-color: rgba(141, 81, 168, 0.947); 
+  color:#fff;
 }
-
 .todocontainer{
 width: 100%;
 height: 100%;
@@ -53,24 +44,20 @@ height: 100%;
   border-radius: 30px;
   text-align: left; 
   overflow-y: scroll;
-  
+
 }
 .list-group-item{
   color: black;
   font-size: medium;
 }
 
-.mainlistimage{
-    margin-right: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
 
 .cardheading{
-  color: black;
+  color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: x-large;
+  background-color: rgba(155, 97, 182, 0.947);
+  border-radius: 30px;
 }
 
 .accountscard{
@@ -79,61 +66,4 @@ height: 100%;
   border-radius: 30px;
 }
 
-.todocardheader{
-  padding: 6%;
-  text-align: center;
-}
-
-.sidecontainer{
-min-height: 100vh;
-padding:10%;
-}
-
-.sidecard{
-  width:95%;
-  height:90vh;
-  border-radius: 30px;
-  background-image: linear-gradient(to top,rgba(59, 57, 185, 0.829) 33%, rgba(71,80,237,1));
-  color:white;
-
-}
-
-.tickmark{
-  width: 20px;
-  height: 20px;
-}
-
-.maincontainer{
-  padding-top:5%;
-  justify-content:right;
-}
-.border-right {
-  border-right: 1px solid black;
-}
-
-.todoList{
-  list-style-type: none;
-}
-.completedlist{
-  list-style-type: none;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 15px;
-  width: 15px;
-  background-color: #eee;
-}
-
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-
-
-}
 

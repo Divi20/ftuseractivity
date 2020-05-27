@@ -87,7 +87,8 @@ const [startDate, setStartDate] = useState(new Date());
       <Card className="accountscardtextdark">
       <CardHeader className="accountscardheader">
       <CardTitle>
-     <h2 className="cardheading">Select an account</h2>
+     <h2 className="cardheading" style={{textAlign:"center"}}>TotalUsers</h2>
+     <h1 style={{textAlign:"center", fontSize:"80px"}}>{users.length}</h1>
       </CardTitle>
       </CardHeader>
       

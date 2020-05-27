@@ -19,7 +19,7 @@ function MainComponent(){
 console.log(members)
     return(
        <div>
-       <Navbar bg="dark">
+       <Navbar bg="dark" className="nav">
       <h1 style={{textAlign:"center"}}>Activity Tracker</h1>
       
      </Navbar>
