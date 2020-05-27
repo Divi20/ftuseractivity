@@ -1,49 +1,74 @@
 import React,{ useState } from 'react';
 import {Card, CardBody, CardTitle, CardHeader,CardText} from 'reactstrap';
 import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 
-const DateTime = ({startDate,setStartDate}) =>{
 
-  return <DatePicker
-  selected={startDate}
-  onChange={date => setStartDate(date)}
-  showTimeSelect
-  timeFormat="HH:mm"
-  timeIntervals={15}
-  timeCaption="time"
-  dateFormat="MMMM d, yyyy h:mm aa"
-/>
-
-}
-
-
-const Time  = ({at}) =>{
-  
+const Time  = ({at , startDate}) =>{
+  console.log(startDate)
+    return(<Card style={{padding:"10px"}}>
+    {at.map(attime =>{
+     
+        return(<div className="row">
+        <div className="col-4">
+        <Card style={{width:"100%"}}>
+        <CardText>From : {attime.start_time} </CardText>
+        </Card>
+        </div>
+        <div className="col-4">
+        <Card style={{width:"100%"}}>
+      
+        <CardText>To : {attime.end_time}</CardText>
+        </Card>
+        </div>
+        <div className="col-4" style={{textAlign:"center"}}>
+        <Card>
+        <CardText style={{color:"red"}}>View</CardText>
+        </Card>
+        </div>
+        </div>);
+    
+    })}
+    
+    </Card>)
+  }
+//code  with date filteration
+/*
+const Time  = ({at , startDate}) =>{
+console.log(startDate)
   return(<Card style={{padding:"10px"}}>
-  {at.map(attime =>(
-    <div className="row">
-  <div className="col-4">
-  <Card style={{width:"100%"}}>
-  <CardText>From : {attime.start_time} </CardText>
-  </Card>
-  </div>
-  <div className="col-4">
-  <Card style={{width:"100%"}}>
-
-  <CardText>To : {attime.end_time}</CardText>
-  </Card>
-  </div>
-  <div className="col-4" style={{textAlign:"center"}}>
-  <Card>
-  <CardText style={{color:"red"}}>View</CardText>
-  </Card>
-  </div>
-  </div>
-    ))}
+  {at.map(attime =>{
+    if(startDate >= (new Date(attime.start_time)) && startDate <= (new Date(attime.end_time))){
+      console.log("startdate:", attime.start_time)
+      return(<div className="row">
+      <div className="col-4">
+      <Card style={{width:"100%"}}>
+      <CardText>From : {attime.start_time} </CardText>
+      </Card>
+      </div>
+      <div className="col-4">
+      <Card style={{width:"100%"}}>
+    
+      <CardText>To : {attime.end_time}</CardText>
+      </Card>
+      </div>
+      <div className="col-4" style={{textAlign:"center"}}>
+      <Card>
+      <CardText style={{color:"red"}}>View</CardText>
+      </Card>
+      </div>
+      </div>);
+    }
+    else{
+     return  <div>No activity found</div>
+    }
+  
+  })}
   
   </Card>)
 }
+*/
 
 const Users = ({ users,loading}) => {
 const [currentUserActivityPeriods , setCurrentUserActivityPeriods] = useState([]);
@@ -93,8 +118,16 @@ const [startDate, setStartDate] = useState(new Date());
 
             <div class="container">
     <div class="row">
-        <div class='col-sm-6'>
-            <DateTime startDate={startDate} setStartDate={setStartDate}></DateTime>
+        <div class='col'>
+        <DatePicker
+        selected={startDate}
+        onChange={date => setStartDate(date)}
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={15}
+        timeCaption="time"
+        dateFormat="MMM d yyyy h:mmaa"
+      />
         </div>
     </div>
 </div>
@@ -105,7 +138,7 @@ const [startDate, setStartDate] = useState(new Date());
           <div class="modal-body">
           {currentUserActivityPeriods.map(at =>{
            return <div>
-           <Time at={at}></Time>
+           <Time at={at} startDate={startDate}></Time>
            </div>
            })
            
